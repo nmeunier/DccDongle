@@ -1,0 +1,6 @@
+
+Commands available :
+
+setSpeed128 address speedValue
+setFunctions0to4 address value
+setAccessory address value
