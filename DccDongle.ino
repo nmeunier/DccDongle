@@ -1,3 +1,18 @@
+/*
+   Copyright 2014 Nicolas Meunier
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
 /**
   DCC signal generator Firmware for Arduino.
   Connect Arduino board to USB port and send commands via serial port.
@@ -29,6 +44,8 @@ void setup() {
 void loop() {
 
   if (stringComplete) {
+  
+	  //Parse input string
       cmd = inputString.substring(0,(inputString.indexOf(" ")));
       inputString = inputString.substring((inputString.indexOf(" ") +1));
 	  
@@ -80,17 +97,15 @@ void loop() {
   }
  
   dps.update();  
-  //Serial.print(count);
   ++count;
 }
 
 void serialEvent() {
   while (Serial.available()) {
-    // get the new byte:
+    // get new data in serial
     char inChar = (char)Serial.read(); 
-    // add it to the inputString:  
-    // if the incoming character is a newline, set a flag
-    // so the main loop can do something about it:
+
+	//Test if new line
     if ((inChar == '\r') || (inChar == '\n')) {
       stringComplete = true;
     }else{
