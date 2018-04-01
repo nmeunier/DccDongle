@@ -10,8 +10,6 @@ It's necessary to install it on Arduino environment.
 See :  https://github.com/Railstars/CmdrArduino or http://railstars.com/software/cmdrarduino/
 
 
-An interface is available for this arduino firmware on this repository : https://github.com/nmeunier/SocialTrainController
-
 Note
 ----
 
